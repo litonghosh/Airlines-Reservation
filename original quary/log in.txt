@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+
+public partial class Log_in : System.Web.UI.Page
+{
+
+    string constr = WebConfigurationManager.ConnectionStrings["connect"].ConnectionString; 
+
+        protected void  Button1_Click(object sender, EventArgs e)
+{
+    SqlConnection con = new SqlConnection(constr);
+    con.Open();
+    SqlCommand cmd = new SqlCommand("select * from customerdata where UserName =@username  or Email =@username or Mobile=@username  and Password=@password ", con);
+    cmd.Parameters.AddWithValue("@username", txtusername.Text);
+    
+    cmd.Parameters.AddWithValue("@password", txtpwd.Text);
+   
+
+    SqlDataAdapter da = new SqlDataAdapter(cmd);
+    DataTable dt = new DataTable();
+    da.Fill(dt);
+    if (dt.Rows.Count > 0)
+    {
+        Response.Redirect("Book your flight.aspx");
+    }
+    else
+    {
+        ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username or Password')</script>");
+    }
+}
+}
+
+    
+

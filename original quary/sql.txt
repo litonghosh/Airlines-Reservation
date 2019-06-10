@@ -1,0 +1,1 @@
+string qry = "Select * from flightdata where Flight_id='" + TextBox1.Text + "' and Source= '" + TextBox2.Text + "' and Destination= '" + TextBox3.Text + Journey_Date + RadioButtonList1.SelectedItem + "'";

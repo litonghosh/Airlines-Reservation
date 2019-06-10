@@ -1,0 +1,1 @@
+string qry = "select * from customerdata where UserName='" + txtusername + "' or Email= '" + txtusername + "' or Mobile='" + txtusername + "'and Password = '" + txtpwd + "'";

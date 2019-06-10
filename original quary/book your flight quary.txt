@@ -1,0 +1,1 @@
+string qry = "Select * from flightdata where Dom_International='" + RadioButtonList1.SelectedItem + "' and trip_catagory='" + RadioButtonList2.SelectedItem  + "'and  Source='" + TextBox1.Text  + "' and Destination='"  + TextBox2.Text  + Journey_Date  + Return_Date  + "' and Class='" + RadioButtonList3.SelectedItem  + "' and Destination='" + TextBox2.Text + "'";
